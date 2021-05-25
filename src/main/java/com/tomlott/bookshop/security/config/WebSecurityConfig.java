@@ -1,6 +1,7 @@
 package com.tomlott.bookshop.security.config;
 
 
+import com.tomlott.bookshop.user.appuser.AppUserRole;
 import com.tomlott.bookshop.user.appuser.AppUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
@@ -23,11 +25,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//                .and()
                 .authorizeRequests()
-                .antMatchers("/registration/**")
-                .permitAll()
+                .antMatchers("/registration/**", "/", "/index").permitAll()
+                //.antMatchers("/admin/**").hasRole(AppUserRole.ADMIN.name())
                 .anyRequest()
-                .authenticated().and().formLogin();
+                .authenticated()
+                .and()
+                .formLogin()
+                    .loginPage("/login")
+                    .permitAll()
+                    .defaultSuccessUrl("/books", true);
+
     }
 
     @Override

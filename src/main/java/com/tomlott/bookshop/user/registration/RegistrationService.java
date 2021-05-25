@@ -22,7 +22,7 @@ public class RegistrationService {
     public String register(RegistrationRequest request){
         boolean isValidEmail = emailValidator.test(request.getEmail());
         if (!isValidEmail)
-            throw new IllegalStateException("email is not valid");
+            throw new IllegalStateException(String.format("email is not valid - %s", request.getEmail())) ;
 
         String token = appUserService.singUpUser(new AppUser(
                 request.getFirstName(),

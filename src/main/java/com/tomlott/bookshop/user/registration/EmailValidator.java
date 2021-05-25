@@ -10,6 +10,8 @@ import java.util.regex.Pattern;
 public class EmailValidator implements Predicate<String> {
     @Override
     public boolean test(String s) {
+        if (s == null)
+            return false;
         Pattern pattern = Pattern.compile("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$");
         Matcher matcher = pattern.matcher(s);
         return matcher.find();
