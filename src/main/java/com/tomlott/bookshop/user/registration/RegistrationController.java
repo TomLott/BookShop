@@ -30,8 +30,6 @@ public class RegistrationController {
         if (bindingResult.hasErrors()){
             return "registration/index";
         }
-        System.out.println("REGISTRATION");
-        System.out.printf("!!!!!!  %s, %s, %s !!!! \n", request.getFirstName(), request.getEmail(), request.getPassword());
         String token = registrationService.register(request);
         model.addAttribute("token", token);
         return "registration/token";

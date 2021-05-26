@@ -3,11 +3,14 @@ package com.tomlott.bookshop.user.appuser;
 import com.tomlott.bookshop.user.registration.token.ConfirmationToken;
 import com.tomlott.bookshop.user.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -31,7 +34,7 @@ public class AppUserService implements UserDetailsService {
             return ;
         AppUser user = new AppUser();
         user.setFirstName("admin");
-        user.setPassword("admin");
+        user.setPassword(bCryptPasswordEncoder.encode("admin"));
         user.setEmail("admin@mail.ru");
         user.setAppUserRole(AppUserRole.ADMIN);
         try {
@@ -41,9 +44,11 @@ public class AppUserService implements UserDetailsService {
         } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new IllegalStateException("Cannot create admin");
         }
-        singUpUser(user);
+
+        userRepository.save(user);
 
     }
+
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
