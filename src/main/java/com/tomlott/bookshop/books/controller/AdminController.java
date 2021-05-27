@@ -60,6 +60,6 @@ public class AdminController {
             return "admin/updateBook";
         }
         bookService.updateBook(book.getId(), book);
-        return "";
+        return "admin/index";
     }
 }

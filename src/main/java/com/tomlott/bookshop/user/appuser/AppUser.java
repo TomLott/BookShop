@@ -1,7 +1,10 @@
 package com.tomlott.bookshop.user.appuser;
 
 
+import com.tomlott.bookshop.account.model.Cart;
 import lombok.*;
+import org.checkerframework.checker.units.qual.C;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -49,12 +52,16 @@ public class AppUser implements UserDetails {
     private Boolean locked = false;
     private Boolean enabled = false;
 
+    @OneToOne
+    private Cart cart;
+
 
     public AppUser(String firstName, String email, String password, AppUserRole appUserRole) {
         this.firstName = firstName;
         this.email = email;
         this.password = password;
         this.appUserRole = appUserRole;
+        cart = new Cart(this);
     }
 
 
