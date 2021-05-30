@@ -23,18 +23,12 @@ import java.util.Set;
 @EqualsAndHashCode
 @NoArgsConstructor
 @Entity
+@Table(name = "app_user")
 public class AppUser implements UserDetails {
 
     @Id
-    @SequenceGenerator(
-            name = "user_sequence",
-            sequenceName = "user_sequence",
-            allocationSize =  1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "user_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
 
     @NotEmpty(message = "Name cannot be empty")
@@ -52,7 +46,8 @@ public class AppUser implements UserDetails {
     private Boolean locked = false;
     private Boolean enabled = false;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cart_id", referencedColumnName = "id")
     private Cart cart;
 
 
@@ -61,7 +56,6 @@ public class AppUser implements UserDetails {
         this.email = email;
         this.password = password;
         this.appUserRole = appUserRole;
-        cart = new Cart(this);
     }
 
 

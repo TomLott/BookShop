@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.lang.reflect.Field;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 
@@ -86,6 +87,10 @@ public class AppUserService implements UserDetailsService {
 
     public void enableAppUser(String email){
         userRepository.enableAppUser(email);
+    }
+
+    public List<AppUser> getUsers(){
+        return userRepository.findAll();
     }
 
 

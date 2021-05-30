@@ -1,12 +1,10 @@
 package com.tomlott.bookshop.books.model;
 
 
+import com.tomlott.bookshop.account.model.Cart;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -36,6 +34,9 @@ public class Book {
     @NotEmpty(message = "Book's description cannot be empty")
     @Size(min = 1, max = 100, message = "Book's description's length cannot be more than 1000")
     private String plot;
+
+    @ManyToOne
+    private Cart cart;
 
     public Book(String name, String author, String publisher, int year, String plot) {
         this.name = name;

@@ -17,20 +17,17 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Component
+@Table(name = "carts")
 public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cart", fetch = FetchType.EAGER)
     private List<Book> books;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne(mappedBy = "cart")
     private AppUser appUser;
 
-    public Cart(AppUser appUser){
-        this.appUser = appUser;
-    }
 }
