@@ -45,5 +45,9 @@
 <form th:method="GET" th:action="@{/admin/update/{id} (id =${book.getId()})}">
     <input type="submit" value="Edit"/>
 </form>
+
+<form th:method="POST" th:action="@{/account/add-cart/{id} (id =${book.getId()})}">
+    <input type="submit" value="Add book"/>
+</form>
 </body>
 </html>

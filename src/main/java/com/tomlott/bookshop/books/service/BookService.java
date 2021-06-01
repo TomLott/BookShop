@@ -15,6 +15,10 @@ public class BookService {
 
     private final BookRepository bookRepository;
 
+    public BookRepository getBookRepository() {
+        return bookRepository;
+    }
+
     public List<Book> getBooks(){
         return bookRepository.findAll();
     }
@@ -27,6 +31,8 @@ public class BookService {
 
         bookRepository.save(book);
     }
+
+
 
     public void deleteBook(Long id){
         if (bookRepository.existsById(id))
@@ -49,5 +55,9 @@ public class BookService {
         oldBook.setPublisher(book.getPublisher());
         oldBook.setYear(book.getYear());
         oldBook.setPlot(book.getPlot());
+    }
+
+    public Book findById(Long id){
+        return bookRepository.findById(id).orElse(null);
     }
 }

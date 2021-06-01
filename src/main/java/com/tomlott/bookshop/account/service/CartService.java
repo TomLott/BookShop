@@ -39,10 +39,22 @@ public class CartService {
         init();
         System.out.println(user.getEmail());
         System.out.println(user.getCart().getId());
-        return bookService.getBooks().stream().filter(a->a.getCart().equals(user.getCart())).collect(Collectors.toList());
+        List<Book> books = bookService.getBooks().stream().filter(a->a.getCart() != null && a.getCart().getId().equals(user.getCart().getId())).collect(Collectors.toList());
+        System.out.println("!!!!!!!!!!!");
+        System.out.println(books);
+        System.out.println("!!!!!!!!!!!");
+        return books;
     }
 
     public void addBook(Long bookId){
-        bookService.getBooks().stream().filter(a->a.getCart().equals(user.getCart())).findFirst().get().setCart(user.getCart());
+       // bookService.getBooks().stream().filter(a->a.getCart().equals(user.getCart())).findFirst().get().setCart(user.getCart());
+//          bookService.getBooks().stream().filter(a->a.getId)
+        Book book = bookService.findById(bookId);
+        System.out.println("!!@!&$@!_%!@U$!@!!!");
+        System.out.println(user.getCart());
+        System.out.println(book.getName());
+        book.setCart(user.getCart());
+        System.out.println(book.getCart());
+        bookService.getBookRepository().save(book);
     }
 }

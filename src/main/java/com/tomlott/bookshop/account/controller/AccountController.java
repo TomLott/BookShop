@@ -31,7 +31,9 @@ public class AccountController {
     }
 
     @PostMapping("/add-cart/{id}")
-    public void addBook(@PathVariable("id") Long bookId){
+    public String addBook(@PathVariable("id") Long bookId){
+        System.out.println("!!!!!!!!");
         cartService.addBook(bookId);
+        return "account/index";
     }
 }

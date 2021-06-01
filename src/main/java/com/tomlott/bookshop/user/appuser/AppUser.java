@@ -48,7 +48,7 @@ public class AppUser implements UserDetails {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cart_id", referencedColumnName = "id")
-    private Cart cart;
+    private Cart cart = new Cart();
 
 
     public AppUser(String firstName, String email, String password, AppUserRole appUserRole) {
