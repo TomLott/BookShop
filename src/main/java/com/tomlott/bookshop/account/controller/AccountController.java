@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/account")
 public class AccountController {
 
-    private final BookService bookService;
     private final CartService cartService;
 
     @GetMapping()
@@ -32,8 +31,13 @@ public class AccountController {
 
     @PostMapping("/add-cart/{id}")
     public String addBook(@PathVariable("id") Long bookId){
-        System.out.println("!!!!!!!!");
         cartService.addBook(bookId);
+        return "account/index";
+    }
+
+    @PostMapping("/remove/{id}")
+    public String removeFromCart(@PathVariable("id") Long bookId){
+        cartService.deleteBook(bookId);
         return "account/index";
     }
 }

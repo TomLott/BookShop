@@ -38,5 +38,9 @@
 <hr>
 <a th:text="${book.getPlot()}"></a>
 
+<form th:method="POST" th:action="@{/account/add-cart/{id} (id =${book.getId()})}">
+    <input type="submit" value="Add book"/>
+</form>
+
 </body>
 </html>

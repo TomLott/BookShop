@@ -23,6 +23,8 @@ public class CartService {
 
 
     private void init() {
+        if (user != null)
+            return ;
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         user = appUserService.getUsers().stream().filter(a->a.getEmail().compareTo(username) == 0).findFirst().orElse(null);
@@ -40,21 +42,21 @@ public class CartService {
         System.out.println(user.getEmail());
         System.out.println(user.getCart().getId());
         List<Book> books = bookService.getBooks().stream().filter(a->a.getCart() != null && a.getCart().getId().equals(user.getCart().getId())).collect(Collectors.toList());
-        System.out.println("!!!!!!!!!!!");
-        System.out.println(books);
-        System.out.println("!!!!!!!!!!!");
         return books;
     }
 
     public void addBook(Long bookId){
-       // bookService.getBooks().stream().filter(a->a.getCart().equals(user.getCart())).findFirst().get().setCart(user.getCart());
-//          bookService.getBooks().stream().filter(a->a.getId)
+        init();
         Book book = bookService.findById(bookId);
-        System.out.println("!!@!&$@!_%!@U$!@!!!");
-        System.out.println(user.getCart());
-        System.out.println(book.getName());
         book.setCart(user.getCart());
         System.out.println(book.getCart());
+        bookService.getBookRepository().save(book);
+    }
+
+    public void deleteBook(Long bookId){
+        init();
+        Book book = bookService.findById(bookId);
+        book.setCart(null);
         bookService.getBookRepository().save(book);
     }
 }
