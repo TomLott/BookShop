@@ -5,8 +5,6 @@ import lombok.*;
 
 @Getter
 @Setter
-//@Data
-//@AllArgsConstructor
 @EqualsAndHashCode
 @ToString
 public class RegistrationRequest {

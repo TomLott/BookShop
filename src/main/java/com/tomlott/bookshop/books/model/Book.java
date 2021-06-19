@@ -2,6 +2,7 @@ package com.tomlott.bookshop.books.model;
 
 
 import com.tomlott.bookshop.account.model.Cart;
+import com.tomlott.bookshop.branch.model.Branch;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Setter
 @Getter
@@ -37,6 +39,9 @@ public class Book {
 
     @ManyToOne
     private Cart cart;
+
+    @ManyToMany(mappedBy = "bookList")
+    private List<Branch> branchList = new ArrayList<>();
 
     public Book(String name, String author, String publisher, int year, String plot) {
         this.name = name;
