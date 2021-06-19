@@ -59,4 +59,14 @@ public class CartService {
         book.setCart(null);
         bookService.getBookRepository().save(book);
     }
+
+    public void deleteAllBooks() {
+        init();
+        List<Book> books = getBooks();
+        if (books == null || books.size() == 0)
+            throw new RuntimeException("There is no books to buy");
+        for (Book b : books){
+            deleteBook(b.getId());
+        }
+    }
 }

@@ -6,10 +6,8 @@ import com.tomlott.bookshop.books.service.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @AllArgsConstructor
 @Controller
@@ -39,5 +37,20 @@ public class AccountController {
     public String removeFromCart(@PathVariable("id") Long bookId){
         cartService.deleteBook(bookId);
         return "account/index";
+    }
+
+    @GetMapping("/success")
+    public String successful(){
+        return "account/success";
+    }
+
+    @PostMapping("/buyAllBooks")
+    public String buyBooks(){
+        try {
+            cartService.deleteAllBooks();
+        } catch (RuntimeException e){
+            return "account/cart";
+        }
+        return "redirect:/account/success";
     }
 }
