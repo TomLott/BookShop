@@ -18,19 +18,19 @@ public class BookConfig {
     CommandLineRunner commandLineRunner(BookRepository repository, BranchService branchService) {
         return args -> {
 
-            Branch branch = new Branch("first");
-            Branch secondBranch = new Branch("second");
+            Branch branch = new Branch("Kazan");
+            Branch secondBranch = new Branch("Moscow");
 
             Book a = new Book("Harry Potter", "J.K.Rolling", "abc", 2000, " Some description ", 10, branch.getName());
             Book b = new Book("Lord of the Rings", "J.R.R.Tolkien", "HHH", 1950, "  New description", 5, branch.getName());
             repository.saveAll(List.of(a, b));
 
-//            branchService.addBranch(branch);
-//            branchService.addBooksToBranch(a, 10, branch.getId());
+            branchService.addBranch(branch);
+            branchService.addBooksToBranch(a, 10, branch.getId());
 //
 //
-//            branchService.addBranch(secondBranch);
-//            branchService.addBooksToBranch(b, 5, secondBranch.getId());
+            branchService.addBranch(secondBranch);
+            branchService.addBooksToBranch(b, 5, secondBranch.getId());
         };
     }
 }

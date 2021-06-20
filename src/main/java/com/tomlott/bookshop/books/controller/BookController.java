@@ -4,6 +4,7 @@ package com.tomlott.bookshop.books.controller;
 import com.tomlott.bookshop.books.model.Book;
 import com.tomlott.bookshop.books.repository.BookRepository;
 import com.tomlott.bookshop.books.service.BookService;
+import com.tomlott.bookshop.branch.model.Branch;
 import com.tomlott.bookshop.branch.service.BranchService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -55,7 +56,7 @@ public class BookController {
 
     @PostMapping("/add-book")
     public String addBookPost(@ModelAttribute("book") @Valid Book book, BindingResult bindingResult){
-        if (bindingResult.hasErrors())
+        if (bindingResult.hasErrors() || !branchService.getBranches().stream().map(Branch::getName).collect(Collectors.toSet()).contains(book.getBranchName()))
             return "books/addBook";
         bookService.addNewBook(book);
         return ("admin/index");

@@ -20,7 +20,7 @@ public class Branch {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @UniqueElements
+    @Column(unique = true)
     private String name;
 
 //    @ManyToMany

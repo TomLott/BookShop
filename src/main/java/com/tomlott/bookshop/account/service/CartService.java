@@ -70,7 +70,8 @@ public class CartService {
         if (books == null || books.size() == 0)
             throw new RuntimeException("There is no books to buy");
         for (Book b : books){
-            deleteBook(b.getId());
+            b.setCart(null);
+            bookService.getBookRepository().save(b);
         }
     }
 }
