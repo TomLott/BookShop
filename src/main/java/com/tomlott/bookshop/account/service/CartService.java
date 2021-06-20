@@ -48,7 +48,10 @@ public class CartService {
     public void addBook(Long bookId){
         init();
         Book book = bookService.findById(bookId);
+        if (book.getAmount() <= 0)
+            throw new IllegalArgumentException("No books left");
         book.setCart(user.getCart());
+        book.setAmount(book.getAmount() - 1);
         System.out.println(book.getCart());
         bookService.getBookRepository().save(book);
     }
@@ -57,6 +60,7 @@ public class CartService {
         init();
         Book book = bookService.findById(bookId);
         book.setCart(null);
+        book.setAmount(book.getAmount() + 1);
         bookService.getBookRepository().save(book);
     }
 

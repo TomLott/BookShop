@@ -4,6 +4,7 @@ package com.tomlott.bookshop.books.controller;
 import com.tomlott.bookshop.books.model.Book;
 import com.tomlott.bookshop.books.repository.BookRepository;
 import com.tomlott.bookshop.books.service.BookService;
+import com.tomlott.bookshop.branch.service.BranchService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.stream.Collectors;
 
 
 @AllArgsConstructor
@@ -20,6 +22,7 @@ public class BookController {
 
     private final BookService bookService;
     private final BookRepository bookRepository;
+    private final BranchService branchService;
 
     @GetMapping()
     public String index(){
@@ -27,8 +30,14 @@ public class BookController {
     }
 
     @GetMapping("/catalog")
-    public String showCatalog(Model model){
-        model.addAttribute("books", bookService.getBooks());
+    public String showBranches(Model model){
+        model.addAttribute("branches", bookService.getBooks().stream().map(Book::getBranchName).collect(Collectors.toSet()));
+        return "books/branches";
+    }
+
+    @GetMapping("/catalog/{branch}")
+    public String showCatalog(Model model, @PathVariable("branch") String branchName){
+        model.addAttribute("books", bookService.getBooks().stream().filter(a->a.getBranchName().equals(branchName)).collect(Collectors.toList()));
         return "books/catalog";
     }
 

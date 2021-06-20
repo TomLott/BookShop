@@ -35,7 +35,7 @@
 
 <div th:each="book : ${books}">
     <a th:href="@{/books/{id}(id=${book.getId()})}"
-       th:text="${book.getId() + ') ' + book.getName() + ', ' + book.getPublisher() + ' - ' + book.getYear() + '.'}"></a>
+       th:text="${book.getId() + ') ' + book.getName() + ', ' + book.getPublisher() + ' - ' + book.getYear() + '.  -- ' + book.getBranchName() + '. ' + book.getAmount() + ' pieces'}"></a>
 </div>
 </body>
 </html>

@@ -35,8 +35,9 @@ public class BookService {
 
 
     public void deleteBook(Long id){
-        if (bookRepository.existsById(id))
+        if (bookRepository.existsById(id)) {
             bookRepository.deleteById(id);
+        }
         else
             throw new IllegalStateException("there is no such book");
     }
@@ -48,13 +49,15 @@ public class BookService {
         if ((oldBook = bookRepository.findById(id).orElse(null)) == null)
             throw new IllegalStateException("There is no such book to update");
         if (oldBook.getName().compareTo(book.getName()) == 0
-                && oldBook.getAuthor().compareTo(book.getAuthor()) == 0)
+                && oldBook.getAuthor().compareTo(book.getAuthor()) == 0 && oldBook.getBranchName().equals(book.getBranchName()) && oldBook.getAmount() == book.getAmount())
             throw new IllegalStateException("This book exists already");
         oldBook.setName(book.getName());
         oldBook.setAuthor(book.getAuthor());
         oldBook.setPublisher(book.getPublisher());
         oldBook.setYear(book.getYear());
         oldBook.setPlot(book.getPlot());
+        oldBook.setBranchName(book.getBranchName());
+        oldBook.setAmount(book.getAmount());
     }
 
     public Book findById(Long id){

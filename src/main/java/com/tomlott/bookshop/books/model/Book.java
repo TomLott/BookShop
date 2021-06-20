@@ -3,7 +3,9 @@ package com.tomlott.bookshop.books.model;
 
 import com.tomlott.bookshop.account.model.Cart;
 import com.tomlott.bookshop.branch.model.Branch;
+import com.tomlott.bookshop.branch.service.BranchService;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -20,6 +22,7 @@ import java.util.Map;
 @NoArgsConstructor
 @Entity
 public class Book {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -43,19 +46,27 @@ public class Book {
     @ManyToOne
     private Cart cart;
 
+//    @Transient
+    private int amount;
+
+//    @Transient
+    private String branchName;
+
     @ElementCollection
     @CollectionTable(name = "branch_books",
             joinColumns = {@JoinColumn(name = "book_id",
             referencedColumnName = "id")})
     @MapKeyColumn(name="branch_name")
-    @Column(name = "count")
+    @Column(name = "amount")
     private Map<Branch, Long> branchList = new HashMap();
 
-    public Book(String name, String author, String publisher, int year, String plot, int amount, Long branchId) {
+    public Book(String name, String author, String publisher, int year, String plot, int amount, String branchName) {
         this.name = name;
         this.author = author;
         this.publisher = publisher;
         this.year = year;
         this.plot = plot;
+        this.amount = amount;
+        this.branchName = branchName;
     }
 }

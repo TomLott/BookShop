@@ -53,6 +53,15 @@
     <input type="text" th:field="*{plot}" id="plot">
     <div style="color:red" th:if="${#fields.hasErrors('plot')}" th:errors="*{plot}">Name error</div>
     <br>
+
+    <label for="amount"> Enter amount of books :</label>
+    <input type="text" th:field="*{amount}" id="amount">
+    <br>
+
+    <label for="branchName"> Enter branch name :</label>
+    <input type="text" th:field="*{branchName}" id="branchName">
+    <br>
+
     <input type="submit" value="Add book"/>
 
 </form>

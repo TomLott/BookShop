@@ -35,6 +35,7 @@
 
 <h1 th:text="${book.getName()} + '.'"> Name</h1>
 <h3 th:text="${book.getAuthor()} + '. ' + ${book.getYear()}"> Author</h3>
+<h4 th:text="${book.getBranchName() + ', ' + book.getAmount() + ' peaces'}"> Branch</h4>
 <hr>
 <a th:text="${book.getPlot()}"></a>
 

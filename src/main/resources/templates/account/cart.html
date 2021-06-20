@@ -35,10 +35,7 @@
 
 <div th:each="book : ${books}">
     <a th:href="@{/books/{id}(id=${book.getId()})}"
-       th:text="${book.getId() + ') ' + book.getName() + ', ' + book.getPublisher() + ' - ' + book.getYear() + '.'}"></a>
-<!--        <a th:href="@{/account/remove/{id}(id=${book.getId()})}"-->
-<!--            th:text="remove"-->
-<!--        ></a>-->
+       th:text="${book.getId() + ') ' + book.getName() + ', ' + book.getPublisher() + ' - ' + book.getYear() + '.  -- ' + book.getBranchName() + '. ' + book.getAmount() + ' pieces'}"></a>
     <form th:method="POST" th:action="@{/account/remove/{id}(id=${book.getId()})}">
         <input type="submit" value="remove book"/></form>
     <hr>
