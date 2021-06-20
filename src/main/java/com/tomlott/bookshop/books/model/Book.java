@@ -10,7 +10,10 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Setter
 @Getter
@@ -40,10 +43,15 @@ public class Book {
     @ManyToOne
     private Cart cart;
 
-    @ManyToMany(mappedBy = "bookList")
-    private List<Branch> branchList = new ArrayList<>();
+    @ElementCollection
+    @CollectionTable(name = "branch_books",
+            joinColumns = {@JoinColumn(name = "book_id",
+            referencedColumnName = "id")})
+    @MapKeyColumn(name="branch_name")
+    @Column(name = "count")
+    private Map<Branch, Long> branchList = new HashMap();
 
-    public Book(String name, String author, String publisher, int year, String plot) {
+    public Book(String name, String author, String publisher, int year, String plot, int amount, Long branchId) {
         this.name = name;
         this.author = author;
         this.publisher = publisher;

@@ -15,8 +15,8 @@ public class BookConfig {
     @Autowired
     CommandLineRunner commandLineRunner(BookRepository repository) {
         return args -> {
-            Book a = new Book("Harry Potter", "J.K.Rolling", "abc", 2000, " Some description ");
-            Book b = new Book("Lord of the Rings", "J.R.R.Tolkien", "HHH", 1950, "  New description");
+            Book a = new Book("Harry Potter", "J.K.Rolling", "abc", 2000, " Some description ", 10, 1L);
+            Book b = new Book("Lord of the Rings", "J.R.R.Tolkien", "HHH", 1950, "  New description", 5, 2L);
             repository.saveAll(List.of(a, b));
 
         };
