@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/Users/itollett/IdeaProjects/bookshop</OriginalElement>
+  <nodes>
+    <node x="851.2856989247312" y="80.0">com.tomlott.bookshop.books.model.Book</node>
+    <node x="1143.2124731182803" y="370.0">com.tomlott.bookshop.user.appuser.UserRepository</node>
+    <node x="257.4166666666667" y="534.0">com.tomlott.bookshop.books.repository.BookRepository</node>
+    <node x="0.0" y="616.0">com.tomlott.bookshop.branch.service.BranchService</node>
+    <node x="13.0" y="534.0">com.tomlott.bookshop.branch.repository.BranchRepository</node>
+    <node x="369.1190322580645" y="616.0">com.tomlott.bookshop.books.service.BookService</node>
+    <node x="798.4440322580645" y="708.0">com.tomlott.bookshop.security.config.WebSecurityConfig</node>
+    <node x="537.1190322580645" y="616.0">com.tomlott.bookshop.account.repository.CartRepository</node>
+    <node x="956.625" y="288.0">com.tomlott.bookshop.user.appuser.AppUser</node>
+    <node x="900.2124731182804" y="534.0">com.tomlott.bookshop.user.registration.token.ConfirmationTokenService</node>
+    <node x="981.7916666666667" y="80.0">com.tomlott.bookshop.user.appuser.AppUserPermission</node>
+    <node x="900.7916666666667" y="184.0">com.tomlott.bookshop.account.model.Cart</node>
+    <node x="312.8690322580645" y="708.0">com.tomlott.bookshop.books.controller.AdminController</node>
+    <node x="604.3690322580645" y="708.0">com.tomlott.bookshop.account.service.CartService</node>
+    <node x="579.8690322580645" y="788.0">com.tomlott.bookshop.account.controller.AccountController</node>
+    <node x="811.2124731182804" y="452.0">com.tomlott.bookshop.user.registration.token.ConfirmationTokenRepository</node>
+    <node x="1344.027365591398" y="616.0">com.tomlott.bookshop.user.registration.EmailValidator</node>
+    <node x="1036.1928494623658" y="788.0">com.tomlott.bookshop.user.registration.RegistrationController</node>
+    <node x="121.61903225806452" y="708.0">com.tomlott.bookshop.books.controller.BookController</node>
+    <node x="1006.7916666666667" y="184.0">com.tomlott.bookshop.user.appuser.AppUserRole</node>
+    <node x="928.2124731182804" y="370.0">com.tomlott.bookshop.user.registration.token.ConfirmationToken</node>
+    <node x="1046.1928494623658" y="708.0">com.tomlott.bookshop.user.registration.RegistrationService</node>
+    <node x="1149.027365591398" y="616.0">com.tomlott.bookshop.user.appuser.AppUserService</node>
+    <node x="575.1606989247312" y="0.0">com.tomlott.bookshop.branch.model.Branch</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.tomlott.bookshop.user.registration.RegistrationController" target="com.tomlott.bookshop.user.registration.RegistrationService" relationship="TO_ONE">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.appuser.AppUser" target="com.tomlott.bookshop.user.appuser.AppUserRole" relationship="TO_ONE">
+      <point x="52.0" y="-15.0" />
+      <point x="-15.166666666666742" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.books.controller.BookController" target="com.tomlott.bookshop.books.repository.BookRepository" relationship="TO_ONE">
+      <point x="-3.2258064521784036E-5" y="-15.0" />
+      <point x="205.619" y="677.0" />
+      <point x="319.5" y="677.0" />
+      <point x="-25.916666666666686" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.books.controller.AdminController" target="com.tomlott.bookshop.books.service.BookService" relationship="TO_ONE">
+      <point x="33.13096774193548" y="-15.0" />
+      <point x="434.0" y="693.0" />
+      <point x="428.119" y="693.0" />
+      <point x="-15.000032258064493" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.registration.RegistrationService" target="com.tomlott.bookshop.user.registration.EmailValidator" relationship="TO_ONE">
+      <point x="100.5" y="0.0" />
+      <point x="1425.027365591398" y="723.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.registration.token.ConfirmationTokenRepository" target="com.tomlott.bookshop.user.registration.token.ConfirmationToken" relationship="DEPENDENCY">
+      <point x="-4.731182804107448E-4" y="-15.0" />
+      <point x="950.712" y="426.0" />
+      <point x="1025.712" y="426.0" />
+      <point x="-4.7311828029705794E-4" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.branch.service.BranchService" target="com.tomlott.bookshop.branch.model.Branch" relationship="DEPENDENCY">
+      <point x="81.0" y="0.0" />
+      <point x="231.0" y="631.0" />
+      <point x="231.0" y="55.0" />
+      <point x="628.161" y="55.0" />
+      <point x="3.010752687941931E-4" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.account.service.CartService" target="com.tomlott.bookshop.books.service.BookService" relationship="TO_ONE">
+      <point x="-3.2258064493362326E-5" y="-15.0" />
+      <point x="675.369" y="693.0" />
+      <point x="428.119" y="693.0" />
+      <point x="-15.000032258064493" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.books.controller.BookController" target="com.tomlott.bookshop.books.service.BookService" relationship="TO_ONE">
+      <point x="14.999967741935478" y="-15.0" />
+      <point x="220.619" y="693.0" />
+      <point x="428.119" y="693.0" />
+      <point x="-15.000032258064493" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.security.config.WebSecurityConfig" target="com.tomlott.bookshop.user.appuser.AppUserService" relationship="TO_ONE">
+      <point x="-3.2258064493362326E-5" y="-15.0" />
+      <point x="898.444" y="686.0" />
+      <point x="1236.527" y="686.0" />
+      <point x="-3.655913978946046E-4" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.books.controller.BookController" target="com.tomlott.bookshop.branch.service.BranchService" relationship="TO_ONE">
+      <point x="-76.5" y="-15.0" />
+      <point x="48.11903225806452" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.books.controller.AdminController" target="com.tomlott.bookshop.books.repository.BookRepository" relationship="TO_ONE">
+      <point x="-3.2258064493362326E-5" y="-15.0" />
+      <point x="400.869" y="677.0" />
+      <point x="319.5" y="677.0" />
+      <point x="-25.916666666666686" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.registration.token.ConfirmationTokenService" target="com.tomlott.bookshop.user.registration.token.ConfirmationTokenRepository" relationship="TO_ONE">
+      <point x="-74.99999999999989" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.account.service.CartService" target="com.tomlott.bookshop.user.appuser.AppUserService" relationship="TO_ONE">
+      <point x="23.13096774193548" y="-15.0" />
+      <point x="698.5" y="686.0" />
+      <point x="1236.527" y="686.0" />
+      <point x="-3.655913978946046E-4" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.appuser.UserRepository" target="com.tomlott.bookshop.user.appuser.AppUser" relationship="DEPENDENCY">
+      <point x="-4.7311828029705794E-4" y="-15.0" />
+      <point x="1229.212" y="344.0" />
+      <point x="1016.125" y="344.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.branch.service.BranchService" target="com.tomlott.bookshop.branch.repository.BranchRepository" relationship="DEPENDENCY">
+      <point x="42.0" y="-15.0" />
+      <point x="15.0" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.registration.RegistrationService" target="com.tomlott.bookshop.user.appuser.AppUserService" relationship="TO_ONE">
+      <point x="1.505376342265663E-4" y="-15.0" />
+      <point x="1146.693" y="686.0" />
+      <point x="1236.527" y="686.0" />
+      <point x="-3.655913978946046E-4" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.books.repository.BookRepository" target="com.tomlott.bookshop.books.model.Book" relationship="DEPENDENCY">
+      <point x="3.3333333328755543E-4" y="15.0" />
+      <point x="345.417" y="590.0" />
+      <point x="773.0" y="590.0" />
+      <point x="773.0" y="95.0" />
+      <point x="-45.999698924731206" y="0.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.branch.service.BranchService" target="com.tomlott.bookshop.branch.repository.BranchRepository" relationship="TO_ONE">
+      <point x="27.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.books.service.BookService" target="com.tomlott.bookshop.books.model.Book" relationship="DEPENDENCY">
+      <point x="-3.2258064493362326E-5" y="-15.0" />
+      <point x="443.119" y="590.0" />
+      <point x="773.0" y="590.0" />
+      <point x="773.0" y="95.0" />
+      <point x="-45.999698924731206" y="0.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.account.controller.AccountController" target="com.tomlott.bookshop.account.service.CartService" relationship="TO_ONE">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.appuser.AppUserRole" target="com.tomlott.bookshop.user.appuser.AppUserPermission" relationship="DEPENDENCY">
+      <point x="15.0" y="-15.0" />
+      <point x="15.0" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.account.service.CartService" target="com.tomlott.bookshop.books.model.Book" relationship="DEPENDENCY">
+      <point x="70.9999677419355" y="0.0" />
+      <point x="773.0" y="723.0" />
+      <point x="773.0" y="95.0" />
+      <point x="-45.999698924731206" y="0.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.account.model.Cart" target="com.tomlott.bookshop.user.appuser.AppUser" relationship="DEPENDENCY">
+      <point x="-4.6666666666667425" y="15.0" />
+      <point x="939.125" y="344.0" />
+      <point x="1016.125" y="344.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.appuser.AppUser" target="com.tomlott.bookshop.account.model.Cart" relationship="DEPENDENCY">
+      <point x="59.5" y="0.0" />
+      <point x="1366.527" y="303.0" />
+      <point x="1366.527" y="127.5" />
+      <point x="935.786" y="127.5" />
+      <point x="-8.005666666666798" y="-15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.registration.token.ConfirmationToken" target="com.tomlott.bookshop.user.appuser.AppUser" relationship="DEPENDENCY">
+      <point x="-4.7311828029705794E-4" y="-15.0" />
+      <point x="1025.712" y="344.0" />
+      <point x="1016.125" y="344.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.branch.repository.BranchRepository" target="com.tomlott.bookshop.branch.model.Branch" relationship="DEPENDENCY">
+      <point x="95.0" y="0.0" />
+      <point x="231.0" y="549.0" />
+      <point x="231.0" y="55.0" />
+      <point x="628.161" y="55.0" />
+      <point x="3.010752687941931E-4" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.appuser.AppUserService" target="com.tomlott.bookshop.user.appuser.UserRepository" relationship="TO_ONE">
+      <point x="-15.000365591397895" y="-15.0" />
+      <point x="-7.6854731182802425" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.registration.token.ConfirmationToken" target="com.tomlott.bookshop.user.appuser.AppUser" relationship="TO_ONE">
+      <point x="-97.5004731182803" y="0.0" />
+      <point x="864.0" y="385.0" />
+      <point x="864.0" y="251.0" />
+      <point x="1016.125" y="251.0" />
+      <point x="0.0" y="-15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.books.model.Book" target="com.tomlott.bookshop.branch.model.Branch" relationship="DEPENDENCY">
+      <point x="3.010752687941931E-4" y="-15.0" />
+      <point x="897.286" y="55.0" />
+      <point x="628.161" y="55.0" />
+      <point x="3.010752687941931E-4" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.account.model.Cart" target="com.tomlott.bookshop.books.model.Book" relationship="DEPENDENCY">
+      <point x="-42.99966666666671" y="0.0" />
+      <point x="773.0" y="199.0" />
+      <point x="773.0" y="95.0" />
+      <point x="-45.999698924731206" y="0.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.books.model.Book" target="com.tomlott.bookshop.account.model.Cart" relationship="DEPENDENCY">
+      <point x="46.000301075268794" y="0.0" />
+      <point x="963.0" y="95.0" />
+      <point x="963.0" y="127.5" />
+      <point x="935.786" y="127.5" />
+      <point x="-8.005666666666798" y="-15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.books.model.Book" target="com.tomlott.bookshop.account.model.Cart" relationship="TO_ONE">
+      <point x="3.010752687941931E-4" y="15.0" />
+      <point x="897.286" y="156.0" />
+      <point x="963.5" y="156.0" />
+      <point x="19.708333333333258" y="-15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.account.service.CartService" target="com.tomlott.bookshop.user.appuser.AppUser" relationship="TO_ONE">
+      <point x="49.24996774193551" y="-15.0" />
+      <point x="724.619" y="251.0" />
+      <point x="1016.125" y="251.0" />
+      <point x="0.0" y="-15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.account.model.Cart" target="com.tomlott.bookshop.user.appuser.AppUser" relationship="TO_ONE">
+      <point x="10.333333333333258" y="15.0" />
+      <point x="954.125" y="251.0" />
+      <point x="1016.125" y="251.0" />
+      <point x="0.0" y="-15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.appuser.AppUser" target="com.tomlott.bookshop.account.model.Cart" relationship="TO_ONE">
+      <point x="-59.5" y="0.0" />
+      <point x="883.292" y="303.0" />
+      <point x="883.292" y="156.0" />
+      <point x="963.5" y="156.0" />
+      <point x="19.708333333333258" y="-15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.books.model.Book" target="com.tomlott.bookshop.branch.model.Branch" relationship="TO_MANY">
+      <point x="15.000301075268794" y="-15.0" />
+      <point x="912.286" y="15.0" />
+      <point x="53.0" y="0.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.account.model.Cart" target="com.tomlott.bookshop.books.model.Book" relationship="TO_MANY">
+      <point x="-31.505666666666798" y="-15.0" />
+      <point x="15.000301075268794" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.registration.RegistrationService" target="com.tomlott.bookshop.user.registration.token.ConfirmationTokenService" relationship="TO_ONE">
+      <point x="-34.19284946236576" y="-15.0" />
+      <point x="1112.5" y="590.0" />
+      <point x="1025.712" y="590.0" />
+      <point x="-4.7311828029705794E-4" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.books.service.BookService" target="com.tomlott.bookshop.books.repository.BookRepository" relationship="TO_ONE">
+      <point x="-3.2258064493362326E-5" y="15.0" />
+      <point x="443.119" y="677.0" />
+      <point x="319.5" y="677.0" />
+      <point x="-25.916666666666686" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.appuser.AppUser" target="com.tomlott.bookshop.user.appuser.AppUserRole" relationship="DEPENDENCY">
+      <point x="15.0" y="-15.0" />
+      <point x="-52.16666666666674" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.appuser.AppUserRole" target="com.tomlott.bookshop.user.appuser.AppUserPermission" relationship="TO_MANY">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.account.service.CartService" target="com.tomlott.bookshop.account.repository.CartRepository" relationship="TO_ONE">
+      <point x="-53.25" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.books.service.BookService" target="com.tomlott.bookshop.books.repository.BookRepository" relationship="DEPENDENCY">
+      <point x="-17.202365591397836" y="-15.0" />
+      <point x="80.5" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.appuser.AppUserService" target="com.tomlott.bookshop.user.registration.token.ConfirmationTokenService" relationship="TO_ONE">
+      <point x="14.999634408602105" y="-15.0" />
+      <point x="1251.527" y="590.0" />
+      <point x="1025.712" y="590.0" />
+      <point x="-4.7311828029705794E-4" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.registration.token.ConfirmationTokenService" target="com.tomlott.bookshop.user.registration.token.ConfirmationToken" relationship="DEPENDENCY">
+      <point x="81.9995268817197" y="-15.0" />
+      <point x="1107.712" y="426.0" />
+      <point x="1025.712" y="426.0" />
+      <point x="-4.7311828029705794E-4" y="15.0" />
+    </edge>
+    <edge source="com.tomlott.bookshop.user.appuser.AppUserService" target="com.tomlott.bookshop.user.appuser.AppUser" relationship="DEPENDENCY">
+      <point x="-3.655913978946046E-4" y="-15.0" />
+      <point x="1236.527" y="514.5" />
+      <point x="1351.527" y="514.5" />
+      <point x="1351.527" y="344.0" />
+      <point x="1016.125" y="344.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.945" showDependencies="true" x="807.2698412698413" y="467.4179894179894" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

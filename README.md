@@ -12,4 +12,8 @@ Technologies: Spring Core, Spring Security, JPA
 3) You don't need to be logged in to view books
 4) DB is postgresql:<br>
 -Database name is bookshop. You can configure it in application.yml file.
-5) In case you have any questions contact me - telegram:@TomLott
+
+<br><br>
+   In case you have any questions contact me - telegram:@TomLott
+
+![alternative text](:Users:itollett:IdeaProjects:bookshop.uml)
