@@ -23,7 +23,8 @@ public class BookConfig {
 
             Book a = new Book("Harry Potter", "J.K.Rolling", "abc", 2000, " Some description ", 10, branch.getName());
             Book b = new Book("Lord of the Rings", "J.R.R.Tolkien", "HHH", 1950, "  New description", 5, branch.getName());
-            repository.saveAll(List.of(a, b));
+            Book c = new Book("War and Peace", "Leo Tolstoy", "aaa", 1865, " About peace and war", 3, secondBranch.getName());
+            repository.saveAll(List.of(a, b, c));
 
             branchService.addBranch(branch);
             branchService.addBooksToBranch(a, 10, branch.getId());
@@ -31,6 +32,7 @@ public class BookConfig {
 //
             branchService.addBranch(secondBranch);
             branchService.addBooksToBranch(b, 5, secondBranch.getId());
+            branchService.addBooksToBranch(c, c.getAmount(), secondBranch.getId());
         };
     }
 }

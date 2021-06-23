@@ -29,7 +29,11 @@ public class Branch {
 //            joinColumns=@JoinColumn(name="branch_id"),
 //            inverseJoinColumns=@JoinColumn(name="book_id")
 //            )
+//
+//    @OneToMany(mappedBy = "branch")
 //    private List<Book> bookList;
+
+
 
     public Branch(String name){
         this.name = name;

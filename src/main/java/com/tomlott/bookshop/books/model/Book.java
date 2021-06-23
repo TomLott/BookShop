@@ -46,6 +46,10 @@ public class Book {
     @ManyToOne
     private Cart cart;
 
+//    @ManyToOne
+//    @JoinColumn(name="branch_id", nullable = false)
+//    private Branch branch;
+
 //    @Transient
     private int amount;
 
