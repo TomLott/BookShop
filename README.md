@@ -16,4 +16,4 @@ Technologies: Spring Core, Spring Security, JPA
 <br><br>
    In case you have any questions contact me - telegram:@TomLott
 
-![alt tag](:Users:itollett:IdeaProjects:bookshop.png)
+![alt tag](https://github.com/TomLott/BookShop/blob/master/:Users:itollett:IdeaProjects:bookshop.png)
