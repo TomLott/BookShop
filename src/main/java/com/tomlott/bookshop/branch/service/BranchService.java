@@ -52,5 +52,9 @@ public class BranchService{
         branchRepository.changeAmount(bookId, amount, branchId);
     }
 
+    public int getBookAmount(Long bookId, Long branchId){
+        return branchRepository.getBookAmount(bookId, branchId);
+    }
+
 
 }

@@ -46,9 +46,9 @@ public class Book {
     @ManyToOne
     private Cart cart;
 
-//    @ManyToOne
-//    @JoinColumn(name="branch_id", nullable = false)
-//    private Branch branch;
+    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    @JoinColumn(name="branch_id", nullable = false)
+    private Branch branch;
 
 //    @Transient
     private int amount;
@@ -64,7 +64,7 @@ public class Book {
     @Column(name = "amount")
     private Map<Branch, Long> branchList = new HashMap();
 
-    public Book(String name, String author, String publisher, int year, String plot, int amount, String branchName) {
+    public Book(String name, String author, String publisher, int year, String plot, int amount, String branchName, Branch branch) {
         this.name = name;
         this.author = author;
         this.publisher = publisher;
@@ -72,5 +72,6 @@ public class Book {
         this.plot = plot;
         this.amount = amount;
         this.branchName = branchName;
+        this.branch = branch;
     }
 }

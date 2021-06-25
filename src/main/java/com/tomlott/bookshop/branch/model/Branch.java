@@ -30,8 +30,8 @@ public class Branch {
 //            inverseJoinColumns=@JoinColumn(name="book_id")
 //            )
 //
-//    @OneToMany(mappedBy = "branch")
-//    private List<Book> bookList;
+    @OneToMany(mappedBy = "branch")
+    private List<Book> bookList;
 
 
 

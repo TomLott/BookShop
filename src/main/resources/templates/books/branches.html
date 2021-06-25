@@ -37,7 +37,7 @@
 <hr>
 <div th:each="branch : ${branches}">
   <a th:href="@{/books/catalog/{branch}(branch=${branch})}"
-     th:text="${branch}"></a>
+     th:text="${branch.getName()}"></a>
 </div>
 </body>
 </html>

@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.stream.Collectors;
 
 
@@ -32,12 +33,15 @@ public class BookController {
 
     @GetMapping("/catalog")
     public String showBranches(Model model){
-        model.addAttribute("branches", bookService.getBooks().stream().map(Book::getBranchName).collect(Collectors.toSet()));
+        model.addAttribute("branches", branchService.getBranches());
         return "books/branches";
     }
 
     @GetMapping("/catalog/{branch}")
     public String showCatalog(Model model, @PathVariable("branch") String branchName){
+        Branch branch = branchService.getBranches().stream().filter(a->a.getName().compareToIgnoreCase(branchName) == 0).findFirst().orElse(null);
+        if (branch == null)
+            throw new RuntimeException("There is no branch named \"" + branchName + "\"" );
         model.addAttribute("books", bookService.getBooks().stream().filter(a->a.getBranchName().equals(branchName)).collect(Collectors.toList()));
         return "books/catalog";
     }
