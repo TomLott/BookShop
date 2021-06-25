@@ -17,7 +17,7 @@ import java.util.List;
 public class Branch {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)
@@ -37,5 +37,15 @@ public class Branch {
 
     public Branch(String name){
         this.name = name;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Branch{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", bookList=" + bookList +
+                '}';
     }
 }

@@ -51,9 +51,11 @@ public class Book {
     private Branch branch;
 
 //    @Transient
+    @Min(value = 0, message = "Wrong amount")
     private int amount;
 
 //    @Transient
+    @NotEmpty(message = "Select branch")
     private String branchName;
 
     @ElementCollection
@@ -64,6 +66,23 @@ public class Book {
     @Column(name = "amount")
     private Map<Branch, Long> branchList = new HashMap();
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", year=" + year +
+                ", plot='" + plot + '\'' +
+                ", cart=" + cart +
+                ", branch=" + branch +
+                ", amount=" + amount +
+                ", branchName='" + branchName + '\'' +
+                ", branchList=" + branchList +
+                '}';
+    }
+
     public Book(String name, String author, String publisher, int year, String plot, int amount, String branchName, Branch branch) {
         this.name = name;
         this.author = author;
@@ -73,5 +92,6 @@ public class Book {
         this.amount = amount;
         this.branchName = branchName;
         this.branch = branch;
+        System.out.println("\n\n\n" +  branch + "\n\n\n");
     }
 }

@@ -3,13 +3,13 @@ package com.tomlott.bookshop.account.service;
 import com.tomlott.bookshop.account.repository.CartRepository;
 import com.tomlott.bookshop.books.model.Book;
 import com.tomlott.bookshop.books.service.BookService;
+import com.tomlott.bookshop.branch.service.BranchService;
 import com.tomlott.bookshop.user.appuser.AppUser;
 import com.tomlott.bookshop.user.appuser.AppUserService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +19,7 @@ public class CartService {
     private final CartRepository cartRepository;
     private final BookService bookService;
     private final AppUserService appUserService;
+    private final BranchService branchService;
     private AppUser user = null;
 
 
@@ -31,10 +32,11 @@ public class CartService {
     }
 
 
-    public CartService(CartRepository cartRepository, BookService bookService, AppUserService appUserService) {
+    public CartService(CartRepository cartRepository, BookService bookService, AppUserService appUserService, BranchService branchService) {
         this.cartRepository = cartRepository;
         this.bookService = bookService;
         this.appUserService = appUserService;
+        this.branchService = branchService;
     }
 
     public List<Book> getBooks(){
@@ -72,6 +74,7 @@ public class CartService {
         for (Book b : books){
             b.setCart(null);
             bookService.getBookRepository().save(b);
+            branchService.changeAmount(b.getId(), b.getAmount(), b.getBranch().getId());
         }
     }
 }

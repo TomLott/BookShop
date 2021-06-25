@@ -24,7 +24,6 @@ public interface BranchRepository extends JpaRepository<Branch, Long> {
     Optional<Branch> findByName(String name);
 
     @Transactional
-    @Modifying
     @Query(value = "SELECT amount FROM branch_books WHERE book_id=?1 AND branch_list_key=?2", nativeQuery = true)
     int getBookAmount(Long bookId, Long branchId);
 }

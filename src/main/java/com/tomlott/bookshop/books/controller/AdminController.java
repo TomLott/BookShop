@@ -4,6 +4,7 @@ package com.tomlott.bookshop.books.controller;
 import com.tomlott.bookshop.books.model.Book;
 import com.tomlott.bookshop.books.repository.BookRepository;
 import com.tomlott.bookshop.books.service.BookService;
+import com.tomlott.bookshop.branch.service.BranchService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,7 @@ public class AdminController {
 
     private final BookService bookService;
     private final BookRepository bookRepository;
+    private final BranchService branchService;
 
     @GetMapping()
     public String index(){
@@ -49,7 +51,6 @@ public class AdminController {
     public String updateBook(@PathVariable("id") Long id, Model model){
         Book oldBook = bookRepository.findById(id).orElseThrow(()->new IllegalStateException("Book not found"));
         model.addAttribute("book", oldBook);
-        log.debug("BEFORE UPDATE");
         return "admin/updateBook";
     }
 
@@ -59,6 +60,9 @@ public class AdminController {
             log.debug("UPDATE ERROR");
             return "admin/updateBook";
         }
+        System.out.println("!!!!!!!!" + book);
+        if (book.getBranch() == null)
+            book.setBranch(branchService.findByName(book.getBranchName()));
         bookService.updateBook(book.getId(), book);
         return "admin/index";
     }

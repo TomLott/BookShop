@@ -39,7 +39,6 @@ public class BookController {
 
     @GetMapping("/catalog/{branch}")
     public String showCatalog(Model model, @PathVariable("branch") String branchName){
-        System.out.println("!!!!!!!!!!!" + branchName);
         Branch branch = branchService.getBranches().stream().filter(a->a.getName().compareToIgnoreCase(branchName) == 0).findFirst().orElse(null);
         if (branch == null)
             throw new RuntimeException("There is no branch named \"" + branchName + "\"" );

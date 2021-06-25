@@ -56,10 +56,12 @@
 
     <label for="amount"> Enter amount of books :</label>
     <input type="text" th:field="*{amount}" id="amount">
+    <div style="color:red" th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}">Amount error</div>
     <br>
 
     <label for="branchName"> Enter branch name :</label>
     <input type="text" th:field="*{branchName}" id="branchName">
+    <div style="color:red" th:if="${#fields.hasErrors('branchName')}" th:errors="*{branchName}">Name error</div>
     <br>
 
     <input type="submit" value="Add book"/>

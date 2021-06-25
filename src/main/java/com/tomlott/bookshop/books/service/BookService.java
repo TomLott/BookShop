@@ -54,8 +54,7 @@ public class BookService {
         if (oldBook.getName().compareTo(book.getName()) == 0
                 && oldBook.getAuthor().compareTo(book.getAuthor()) == 0
                 && oldBook.getBranch().getName().equals(book.getBranch().getName())
-                && oldBook.getAmount() == book.getAmount()
-                && branchService.getBookAmount(book.getId(), book.getBranch().getId()) == branchService.getBookAmount(oldBook.getId(), oldBook.getBranch().getId()))
+                && (branchService.getBookAmount(book.getId(), book.getBranch().getId()) == branchService.getBookAmount(oldBook.getId(), oldBook.getBranch().getId())))
             throw new IllegalStateException("This book exists already");
         oldBook.setName(book.getName());
         oldBook.setAuthor(book.getAuthor());
