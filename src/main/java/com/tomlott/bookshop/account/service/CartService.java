@@ -54,7 +54,6 @@ public class CartService {
             throw new IllegalArgumentException("No books left");
         book.setCart(user.getCart());
         book.setAmount(book.getAmount() - 1);
-        System.out.println(book.getCart());
         bookService.getBookRepository().save(book);
     }
 
